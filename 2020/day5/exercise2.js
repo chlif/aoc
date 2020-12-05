@@ -43,6 +43,5 @@ fs.readFile(file, 'utf8', (err, data) => {
   const lowest = seatIds.reduce(findLowest, 1023);
   const mySeat = findMissingSeat(lowest, highest, seatIds);
 
-  console.log("%s %s %s", lowest, highest, mySeat);
-  console.log("%s %s", highest-lowest, seatIds.length);
+  console.log(mySeat);
 });
