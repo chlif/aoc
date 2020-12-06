@@ -11,8 +11,9 @@ fs.readFile(file, 'utf8', (err, data) => {
   if (err) return console.err(err);
   const groups = data.split("\n\n")
     .map(group => group.replace(/\n/g, ''))
-    .map(uniq);
+    .map(uniq)
+    .reduce((mem, group) => mem + group.length, 0);
 
-  console.log(groups.reduce((mem, group) => mem + group.length, 0));
+  console.log(groups);
 
 });
