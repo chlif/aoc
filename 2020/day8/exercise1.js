@@ -20,7 +20,7 @@ const run = (acc, line, code) => {
 
 fs.readFile(file, 'utf8', (err, data) => {
   if (err) return console.err(err);
-  const code = data.split('\n');
+  const code = data.split('\n').filter(row => row.length > 0);
 
   console.log(run(0, 0, code));
 
