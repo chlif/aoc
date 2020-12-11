@@ -15,7 +15,6 @@ const round = (seats) => {
     if (s === '#' && occupiedAdjacentSeats >= 4) return 'L';
     return s;
   }));
-  // print(m);
   return m;
 };
 
@@ -28,12 +27,12 @@ const runRec = (seats, prev) => {
 
 const countOccupied = seats => seats.reduce((acc, r) => [...acc,...r], []).sort().indexOf('.');
 
+// This is for debugging. Not called anywhere in the final solution
 const print = seats => console.log('---\n'+seats.map(r => r.join('')).join('\n'));
 
 fs.readFile(file, 'utf8', (err, data) => {
   if (err) return console.err(err);
   const seats = data.split('\n')
-//  const seats = testSet.split('\n')
       .filter(row => row.length > 0)
       .map(row => row.split(''));
 
