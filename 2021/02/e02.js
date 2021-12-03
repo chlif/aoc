@@ -6,7 +6,7 @@ fs.readFile(file, 'utf8', (err, data) => {
   if (err) return console.err(err);
   const input = data.split('\n').filter(row => row.length > 0);
 
-  // Exercise 1
+  // Exercise 2
   const findTarget = i => i.reduce((a,s) => {
     const r = s.match(stepRegex);
     console.log(a);
