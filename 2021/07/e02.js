@@ -8,8 +8,8 @@ fs.readFile(file, 'utf8', (err, data) => {
   const min = c => c.reduce((a,b) => (a === undefined || b < a) ? b : a, undefined);
   const max = c => c.reduce((a,b) => (a === undefined || b > a) ? b : a, undefined);
 
-  const fib = a => (a <= 1) ? a : a + fib(a-1);
-  const fuel = (point,c) => c.reduce((acc,b) => acc + fib(Math.abs(point-b)), 0);
+  const tri = a => a * (a+1) / 2;
+  const fuel = (point,c) => c.reduce((acc,b) => acc + tri(Math.abs(point-b)), 0);
 
   const bruteFind = c => {
     const lowest = min(c);
