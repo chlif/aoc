@@ -14,21 +14,7 @@ fs.readFile(file, 'utf8', (err, data) => {
   const closingCharacters = {
     '(': ')', '[': ']', '{': '}', '<': '>'
   };
-
-  const isCorrectClosingCharacter = (open, close) => {
-    switch (open) {
-      case '(':
-        return close === ')';
-      case '[':
-        return close === ']';
-      case '{':
-        return close === '}';
-      case '<':
-        return close === '>';
-      default:
-        return false;
-    }
-  };
+  const isCorrectClosingCharacter = (open, close) => closingCharacters[open] === close;
 
   const autocorrect = (l,s) => {
     if (l.length === 0)
