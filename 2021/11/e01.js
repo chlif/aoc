@@ -43,18 +43,8 @@ fs.readFile(file, 'utf8', (err, data) => {
       let tmp = round(mR);
       counter += tmp[0];
       mR = tmp[1];
-      //print(mR);
     }
     return counter;
-  };
-
-  const print = m => {
-    let str = '';
-    for (let i = 0; i < 100; i++) {
-      if (i%10 === 0) str += '\n';
-      str += m[i];
-    }
-    console.log(str);
   };
 
   console.log("E1: ", run(buildMap(input)));
