@@ -39,10 +39,10 @@ fs.readFile(file, 'utf8', (err, data) => {
     const w = paper.reduce((a,d) => (d.x > a) ? d.x : a, 0)+1;
     const h = paper.reduce((a,d) => (d.y > a) ? d.y : a, 0)+1;
     let str = '';
-    for (let x = 0; x < w; x++) {
+    for (let y = 0; y < h; y++) {
       str += '\n';
-      for (let y = 0; y < w; y++) {
-        str += (paper.find(p => p.x === x && p.y === y)) ? '#' : '.';
+      for (let x = 0; x < w; x++) {
+        str += (paper.find(p => p.x === x && p.y === y)) ? '#' : ' ';
       }
     }
     return str;
