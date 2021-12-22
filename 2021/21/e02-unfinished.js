@@ -3,14 +3,14 @@
  */
 
 let fs = require('fs');
-const file = './test.txt';
+const file = './input.txt';
 
 fs.readFile(file, 'utf8', (err, data) => {
   if (err) return console.err(err);
   const input = data.split('\n').filter(row => row.length > 0);
   const parse = input => input.map(p => {
     const r = p.match(/[0-9]/g);
-    return parseInt(r[1])-1;
+    return parseInt(r[1]);
   });
 
   const l = 21;
@@ -26,23 +26,21 @@ fs.readFile(file, 'utf8', (err, data) => {
       return cache[k];
     }
 
-    const n = (s[p]+d) % 10 + 1;
+    const n = (s[p]+d-1) % 10 + 1;
     const x = c[p] + n;
     if (x >= l) {
-      const w = [0,0].map((a,i) => (i===p) ? 1 : 0);
-      cache[k] = w;
-      return w;
+      return [0,0].map((a,i) => (i===p) ? 1 : 0);
     }
 
-    const nc = c.map((a,i) => (i===p) ? x : a);
     const ns = s.map((a,i) => (i===p) ? n : a);
+    const nc = c.map((a,i) => (i===p) ? x : a);
     const u = turn.map(nd => cast(nd, 1-p, [...nc], [...ns])).reduce((a,w) => [a[0]+w[0],a[1]+w[1]], [0,0]);
 
     cache[k] = u;
     return u;
   };
 
-  const play = () => D.map(d => cast(d,0,[0,0],parse(input))).reduce((a,w) => [a[0]+w[0],a[1]+w[1]], [0,0]);
+  const play = () => turn.map(d => cast(d,0,[0,0],parse(input))).reduce((a,w) => [a[0]+w[0],a[1]+w[1]], [0,0]);
 
   console.log("E2: ", play());
 });
