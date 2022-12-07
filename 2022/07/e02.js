@@ -37,12 +37,8 @@ fs.readFile(file, 'utf8', (err, data) => {
     }
   });
 
-  for (let i = system.length-1; i >= 0; i--) {
-    if (system[i].type === 'DIR') {
-      for (let j = 0; j < system[i].children.length; j++) {
-        system[i].size += system[system[i].children[j].id].size;
-      }
-    }
+  for (let i = system.length-1; i >= 1; i--) {
+    system[system[i].parent].size += system[i].size;
   }
 
   const minDelete = needed - (total - system[0].size);
