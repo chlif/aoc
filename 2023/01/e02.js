@@ -16,5 +16,5 @@ fs.readFile(file, 'utf8', (err, data) => {
       .map(x => eval( x[0] + '' + x[x.length-1] ))
       .reduce((a,x) => a+x, 0);
 
-  console.log("E1: " + values);
+  console.log("E2: " + values);
 });
