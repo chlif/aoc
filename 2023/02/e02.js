@@ -4,7 +4,6 @@ const file = './input.txt';
 fs.readFile(file, 'utf8', (err, data) => {
   if (err) return console.err(err);
   const input = data.split('\n').filter(row => row.length > 0);
-  const LIMITS = { red: 12, green: 13, blue: 14 };
 
   const regGame = /Game ([0-9]*)\:/;
   const regColor = / ([0-9]*) (red|green|blue)/g;
