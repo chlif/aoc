@@ -11,7 +11,6 @@ fs.readFile(file, 'utf8', (err, data) => {
   const masks = [
     [-w-1,0,w+1], [-w+1,0,w-1]
   ];
-  const check = (word) => (word === 'XMAS') ? 1 : 0;
   const pull = (i, mask) => mask.reduce((a,m) => [...a, map.charAt(i+m)], []).join('')
 
   let count = 0;
