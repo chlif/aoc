@@ -7,5 +7,5 @@ with open(FILE, "r") as f:
     for r in f:
         r = r.replace("\n", "")
         if len(r) > 0:
-            input.append(r.replace("\n", ""))
+            input.append(r)
 
