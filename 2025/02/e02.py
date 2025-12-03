@@ -1,6 +1,5 @@
 import sys
 from math import floor
-from textwrap import wrap
 
 FILE = "test.txt" if "-t" in sys.argv else "input.txt"
 
